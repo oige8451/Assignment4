@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Lego Collection</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container mx-auto flex justify-between items-center py-4">
+            <a href="/" class="text-2xl font-bold">Lego Collection</a>
+            <div class="flex space-x-4">
+                <a href="/about" class="text-lg">About</a>
+
+                <div class="dropdown">
+                    <summary class="cursor-pointer text-lg">Theme</summary>
+                    <ul class="dropdown-content absolute hidden text-gray-700 pt-1">
+                        <li><a href="/lego/sets?theme=technic" class="dropdown-item">Technic</a></li>
+                        <li><a href="/lego/sets?theme=Series 4 Minifigures" class="dropdown-item">Series 4 Minifigures</a></li>
+                        <li><a href="/lego/sets?theme=Wolfpack" class="dropdown-item">Wolfpack</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto">
+        <div class="hero-content text-center">
+            <h1 class="text-5xl font-bold">404</h1>
+            <p class="mt-4 text-xl">Page Not Found</p>
+            <img src="https://i.pinimg.com/564x/73/b6/6d/73b66d9790c99f0bb027f5197e94870b.jpg" alt="404 Image" class="mx-auto mt-6">
+            <a href="/" class="btn mt-6">Go Back Home</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle the dropdown
+        document.querySelector('.dropdown summary').addEventListener('click', function() {
+            document.querySelector('.dropdown-content').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Lego Collection</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container mx-auto flex justify-between items-center py-4">
+            <a href="/" class="text-2xl font-bold">Lego Collection</a>
+            <div class="flex space-x-4">
+                <a href="/" class="text-lg">Home</a>
+                <a class="active" href="/about" class="text-lg">About</a>
+                <div class="dropdown">
+                    <summary class="cursor-pointer text-lg">Theme</summary>
+                    <ul class="dropdown-content absolute hidden text-gray-700 pt-1">
+                        <li><a href="/lego/sets?theme=technic" class="dropdown-item">Technic</a></li>
+                        <li><a href="/lego/sets?theme=Series 4 Minifigures" class="dropdown-item">Series 4 Minifigures</a></li>
+                        <li><a href="/lego/sets?theme=Wolfpack" class="dropdown-item">Wolfpack</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto">
+        <div class="hero-content text-center">
+            <h1 class="text-5xl font-bold">About</h1>
+            <p class="py-6">All about me</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+                <img src="https://i.pinimg.com/736x/a3/92/41/a39241aa3cca6e83e53ad1362a6a6698.jpg" alt="About Me">
+            </div>
+            <div>
+                <p class="text-lg">Hi there, My name is Tomi .I love reading books raging from fantasy fiction to thrillers. I'm currently in my 3rd semester in the program CPA. My hobbies include reading, gaming, and exploring new music.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle the dropdown
+        document.querySelector('.dropdown summary').addEventListener('click', function() {
+            document.querySelector('.dropdown-content').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
