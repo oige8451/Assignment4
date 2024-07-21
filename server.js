@@ -13,9 +13,11 @@
 ********************************************************************************/
 
 const legoSets = require("./modules/legoSets");
-const HTTP_PORT = process.env.PORT || 8080;
+const HTTP_PORT = process.env.PORT || 3030;
 const express = require("express");
 const app = express();
+
+app.listen(HTTP_PORT, () => console.log(`Server listening on: ${HTTP_PORT}`));
 
 // Set the view engine to EJS
 app.set("view engine", "ejs");
@@ -88,8 +90,7 @@ legoSets
       res.status(404).render("404", { message: "Page not found." });
     });
 
-    // Start the server after initializing routes
-    app.listen(HTTP_PORT, () => console.log(`Server listening on: ${HTTP_PORT}`));
+  
 
   })
   .catch((error) => {
