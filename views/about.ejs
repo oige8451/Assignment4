@@ -7,23 +7,7 @@
     <title>Lego Collection</title>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container mx-auto flex justify-between items-center py-4">
-            <a href="/" class="text-2xl font-bold">Lego Collection</a>
-            <div class="flex space-x-4">
-                <a href="/" class="text-lg">Home</a>
-                <a class="active" href="/about" class="text-lg">About</a>
-                <div class="dropdown">
-                    <summary class="cursor-pointer text-lg">Theme</summary>
-                    <ul class="dropdown-content absolute hidden text-gray-700 pt-1">
-                        <li><a href="/lego/sets?theme=technic" class="dropdown-item">Technic</a></li>
-                        <li><a href="/lego/sets?theme=Series 4 Minifigures" class="dropdown-item">Series 4 Minifigures</a></li>
-                        <li><a href="/lego/sets?theme=Wolfpack" class="dropdown-item">Wolfpack</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <%- include('partials/navbar', {page: '/about'}) %>
     <div class="container mx-auto">
         <div class="hero-content text-center">
             <h1 class="text-5xl font-bold">About</h1>

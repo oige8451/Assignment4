@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./views/**/*.html', ],
+  content: ['./views/**/*.ejs'], // Corrected the syntax here
   theme: {
     extend: {},
     container: {
@@ -9,11 +9,12 @@ module.exports = {
   },
   plugins: [
     require('daisyui'),
-    require('@tailwindcss/typography'),],
+    require('@tailwindcss/typography'),
+  ],
+  daisyui: {
+    themes: ['lemonade'], 
+  },
+};
 
-    daisyui: {
-      themes: ["lemonade"], 
-    },
-}
-
+ 
 

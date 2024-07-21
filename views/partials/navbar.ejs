@@ -1,0 +1,17 @@
+<nav class="navbar">
+    <div class="container mx-auto flex justify-between items-center py-4">
+        <a href="/" class="text-2xl font-bold <%= (page == '/') ? 'active' : '' %>">Lego Collection</a>
+        <div class="flex space-x-4">
+            <a class="<%= (page == '/') ? 'active' : '' %>" href="/">Home</a>
+            <a class="<%= (page == '/about') ? 'active' : '' %>" href="/about">About</a>
+            <div class="dropdown">
+                <summary class="cursor-pointer text-lg">Theme</summary>
+                <ul class="dropdown-content absolute hidden text-gray-700 pt-1">
+                    <li><a class="<%= (page == '/lego/sets?theme=technic') ? 'active' : '' %>" href="/lego/sets?theme=technic">Technic</a></li>
+                    <li><a class="<%= (page == '/lego/sets?theme=Series 4 Minifigures') ? 'active' : '' %>" href="/lego/sets?theme=Series 4 Minifigures">Series 4 Minifigures</a></li>
+                    <li><a class="<%= (page == '/lego/sets?theme=Wolfpack') ? 'active' : '' %>" href="/lego/sets?theme=Wolfpack">Wolfpack</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
