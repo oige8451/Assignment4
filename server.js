@@ -1,14 +1,17 @@
 /********************************************************************************
- *  WEB322 – Assignment 02
- *
- *  I declare that this assignment is my own work in accordance with Seneca's
- *  Academic Integrity Policy:
- *
- *  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
- *
- *  Name: ___TOMI IGE___________________ Student ID: ____169604220__________ Date: _________6/6/2024_____
- *
- ********************************************************************************/
+*  WEB322 – Assignment 03
+* 
+*  I declare that this assignment is my own work in accordance with Seneca's
+*  Academic Integrity Policy:
+* 
+*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
+* 
+*  Name: _______Tomi ige_______________ Student ID: ____169604220 __________ Date: _______24/6/24_______
+*
+*  Published URL: __________________________https://assignment-3-iota-smoky.vercel.app/_________________________________
+*
+********************************************************************************/
+
 const legoSets = require("./modules/legoSets");
 const HTTP_PORT = process.env.PORT || 8080;
 const express = require("express");
