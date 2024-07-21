@@ -19,11 +19,9 @@ const app = express();
 
 app.listen(HTTP_PORT, () => console.log(`Server listening on: ${HTTP_PORT}`));
 
-// Set the view engine to EJS
+app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
-
-// Mark the "public" folder as "static"
-app.use(express.static("public"));
+app.use(express.static(__dirname + "public"));
 
 // Initialize the sets data and start the server only after successful initialization
 legoSets
