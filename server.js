@@ -19,11 +19,9 @@ const app = express();
 
 // Set the view engine to EJS
 app.set("view engine", "ejs");
-//mark the "public" folder as "static"
-app.use(express.static("public"));
 
-// start the server on the port and output a confirmation to the console
-app.listen(HTTP_PORT, () => console.log(`server listening on: ${HTTP_PORT}`));
+// Mark the "public" folder as "static"
+app.use(express.static("public"));
 
 // Initialize the sets data and start the server only after successful initialization
 legoSets
@@ -59,37 +57,41 @@ legoSets
           .getAllSets()
           .then((sets) => {
             if (sets.length === 0) {
-            return res.status(404).render("404", { message: "No sets found." });
+              return res.status(404).render("404", { message: "No sets found." });
+            }
+            res.render("sets", { sets: sets });
+          })
+          .catch((error) =>
+            res.status(404).render("404", { message: `Error retrieving all Lego sets: ${error.message}` })
+          );
+      }
+    });
+
+    app.get("/lego/sets/:set_num", (req, res) => {
+      const setNum = req.params.set_num;
+      legoSets
+        .getSetByNum(setNum)
+        .then((set) => {
+          if (set) {
+            res.render("set", { set: set });
+          } else {
+            res.status(404).render("404", { message: `Lego set with set_num ${setNum} not found.` });
           }
-          res.render("sets", { sets: sets });
         })
         .catch((error) =>
-          res.status(404).render("404", { message: `Error retrieving all Lego sets: ${error.message}` })
+          res.status(404).render("404", { message: `Error retrieving set by set_num: ${error.message}` })
         );
-    }
-  });
-    
-  app.get("/lego/sets/:set_num", (req, res) => {
-    const setNum = req.params.set_num;
-    legoSets
-      .getSetByNum(setNum)
-      .then((set) => {
-        if (set) {
-          res.render("set", { set: set });
-        } else {
-          res.status(404).render("404", { message: `Lego set with set_num ${setNum} not found.` });
-        }
-      })
-      .catch((error) =>
-        res.status(404).render("404", { message: `Error retrieving set by set_num: ${error.message}` })
-      );
-  });
+    });
 
-  app.use((req, res) => {
-    res.status(404).render("404", { message: "Page not found." });
-  });
+    // Catch-all route for 404 errors
+    app.use((req, res) => {
+      res.status(404).render("404", { message: "Page not found." });
+    });
 
-})
-.catch((error) => {
-  console.error(`Initialization failed: ${error.message}`);
-});
+    // Start the server after initializing routes
+    app.listen(HTTP_PORT, () => console.log(`Server listening on: ${HTTP_PORT}`));
+
+  })
+  .catch((error) => {
+    console.error(`Initialization failed: ${error.message}`);
+  });
