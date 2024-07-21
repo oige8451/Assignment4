@@ -83,7 +83,7 @@ legoSets
         );
     });
 
-    // Catch-all route for 404 errors
+
     app.use((req, res) => {
       res.status(404).render("404", { message: "Page not found." });
     });
